@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="ToDo.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="images/list.jpg" alt="" height="25px" width="30px"></h2>
+            <div class="row">
+                <input type="text" id="task" placeholder="Add your task">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="list">
+                <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+        const task = document.getElementById("task")
+        const listContainer = document.getElementById("list")
+        function addTask() {
+            if (task.value === "") {
+                alert("You must write something")
+            }
+            else {
+                let li = document.createElement("li")
+                li.innerHTML = task.value
+                listContainer.appendChild(li)
+                let span = document.createElement("span")
+                span.innerHTML = "\u00d7"
+                li.appendChild(span)
+            }
+            task.value = ""
+            storeData()
+        }
+        listContainer.addEventListener("click", (e) => {
+            if(e.target.tagName === "LI") {
+                e.target.classList.toggle("checked")
+                storeData()
+            }
+            else if(e.target.tagName === "SPAN") {
+                e.target.parentElement.remove()
+                storeData()
+            }
+
+        }, false)
+
+        function storeData() {
+            localStorage.setItem("data", listContainer.innerHTML)
+
+        }
+        function showTask() {
+            listContainer.innerHTML = localStorage.getItem("data")
+        }
+        showTask()
+
+
+    </script>
+
+</body>
+
+</html>

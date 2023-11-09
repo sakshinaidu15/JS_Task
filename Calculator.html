@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            background-color: lightblue;
+        }
+
+        .new form {
+            text-align: center;
+            background-color: darkslategray;
+            height: 500px;
+            width: 420px;
+            margin: auto;
+            display: block;
+            margin-top: 80px;
+            padding-top: 20px;
+            border-radius: 8px;
+        }
+
+        input[type="text"] {
+            width: 350px;
+            background-color: darkslategray;
+            padding: 15px;
+            margin-top: 15px;
+            border: none;
+            color: white;
+            font-size: 25px;
+            text-align: right;
+            /* box-shadow: 3px 5px 3px 3px rgba(0, 0, 0, 0.3); */
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        input[type="button"] {
+            width: 65px;
+            padding: 15px;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+            background-color: darkslategray;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 3px 5px 3px 3px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="new">
+        <form>
+            <input type="text" name="display"> <br><br>
+
+            <input type="button" value="AC" onclick="form.display.value = '' " style="color: cyan;">
+            <input type="button" value="DE" onclick="form.display.value = form.display.value.toString().slice(0, -1)" style="color: cyan;">
+            <input type="button" value="." onclick="form.display.value += '.'" style="color: cyan;">
+            <input type="button" value="/" onclick="form.display.value += '/' " style="color: cyan;"> <br><br>
+
+            <input type="button" value="7" onclick="form.display.value += 7">
+            <input type="button" value="8" onclick="form.display.value += 8">
+            <input type="button" value="9" onclick="form.display.value += 9">
+            <input type="button" value="*" onclick="form.display.value += '*' " style="color: cyan;"> <br><br>
+
+            <input type="button" value="4" onclick="form.display.value += 4">
+            <input type="button" value="5" onclick="form.display.value += 5">
+            <input type="button" value="6" onclick="form.display.value += 6">
+            <input type="button" value="-" onclick="form.display.value += '-' " style="color: cyan;"> <br><br>
+
+            <input type="button" value="1" onclick="form.display.value += '1'">
+            <input type="button" value="2" onclick="form.display.value += 2">
+            <input type="button" value="3" onclick="form.display.value += 3">
+            <input type="button" value="+" onclick="form.display.value += '+' " style="color: cyan;"> <br><br>
+
+            <input type="button" value="00" onclick="form.display.value += '00' ">
+            <input type="button" value="0" onclick="form.display.value += 0">
+            <input type="button" value="=" onclick="form.display.value = eval(form.display.value)" style="width: 150px; color: cyan;">
+        </form>
+    </div>
+
+</body>
+</html>
